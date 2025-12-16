@@ -23,6 +23,9 @@ def main():
     if not git_exists:
         log.info("Decompile directory is not a git repository. Initializing git...")
         subprocess.run(["git", "init"], cwd=DECOMPILE_DIR)
+        subprocess.run(["git", "add", "."], cwd=DECOMPILE_DIR)
+        subprocess.run(["git", "commit", "-m", "chore: init"], cwd=DECOMPILE_DIR)
+        log.info("Initialized new git repository in decompile directory.")
     else:
         log.info("Git repository found in decompile directory.")
 
