@@ -43,6 +43,14 @@ You can then open the `hytale-server` folder in your favorite IDE and begin expl
 you must first setup the SDK. After opening the project (you can open the `pom.xml` file, IDEA will prompt you to open
 the entire project) press Ctrl+Alt+Shift+S and under _Project_ configure SDK and Language level to *25*.
 
+If IDEA does not offer an option to run the main file, right-click the `src` folder -> Mark Directory As -> Sources Root
+then reload the maven project:
+![_readme_images/img.png](_readme_images/img.png)  
+It is located in the "m" icon on the right side:  
+![_readme_images/m.png](_readme_images/m.png)  
+If you don't see it, enable it under View -> Tool Windows -> Maven.  
+![_readme_images/tool_windows.png](_readme_images/tool_windows.png)  
+
 
 This decompiled code is likely broken. To apply existing patches:
 ```shell
