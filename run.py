@@ -144,7 +144,7 @@ def make_source_patches():
 
 
 if __name__ == "__main__":
-    actions = ("setup", "makeFeaturePatches", "applyPatches", "makeSourcePatches", "applySourcePatches")
+    actions = ("setup", "makeFeaturePatches", "makeSourcePatches", "applySourcePatches")
 
     if len(sys.argv) <= 1 or sys.argv[1] not in actions:
         print("Usage: python run.py [{}]".format("|".join(actions)))
@@ -168,14 +168,14 @@ if __name__ == "__main__":
 
         decompile(jar_path, Constants.DECOMPILE_DIR)
 
-        # TODO: apply patches after setup
-
         # initialize project directory
         if not USE_MAVEN:
             # raw intellij build system:
-            Constants.PROJECT_DIR.mkdir(parents=True, exist_ok=True)
-            src = Constants.PROJECT_DIR / "src"
-            src.mkdir(parents=True, exist_ok=True)
+            logger.error("Please use Maven")
+            sys.exit(1)
+            # Constants.PROJECT_DIR.mkdir(parents=True, exist_ok=True)
+            # src = Constants.PROJECT_DIR / "src"
+            # src.mkdir(parents=True, exist_ok=True)
         else:
             # Maven initialization:
             # mvn archetype:generate -DgroupId=com.hypixel.hytale -DartifactId=hytale-server -DarchetypeArtifactId=maven‑archetype‑quickstart -DinteractiveMode=false
@@ -210,6 +210,8 @@ if __name__ == "__main__":
 
 
     elif action == "makeFeaturePatches":
+        logger.warning("This is deprecated, please consider using makeSourcePatches instead.")
+
         repo = ensure_repo()
         tmp = tempfile.TemporaryDirectory()
 
@@ -241,11 +243,6 @@ if __name__ == "__main__":
             copies += 1
 
         logger.info("Patches created, files copied: {}", copies)
-
-    elif action == "applyPatches":
-        logger.warning("no-op")
-        # repo = ensure_repo()
-        # apply_feature_patches(repo)
 
     elif action == "makeSourcePatches":
         make_source_patches()
