@@ -149,7 +149,7 @@ if __name__ == "__main__":
 
     if action == "setup":
         if Constants.PROJECT_DIR.is_dir():
-            print("Project directory already exists. Please delete the folder and run setup again.")
+            logger.warning("Project directory already exists. Please delete the folder and run setup again.")
             sys.exit(1)
 
         # remove previous work dir
