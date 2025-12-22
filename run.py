@@ -14,8 +14,13 @@ if __name__ == "__main__":
     pre_init()
 
     if action == "setup":
+        if Constants.PROJECT_DIR.is_dir():
+            print("Project directory already exists. Please delete the folder and run setup again.")
+            sys.exit(1)
+
         # remove previous work dir
         shutil.rmtree(Constants.WORK_DIR, ignore_errors=True)
+        Constants.ensure_dirs()
 
         # download and decompile
         jar_path = Constants.DOWNLOADS_DIR / "minigui.jar"
@@ -25,5 +30,7 @@ if __name__ == "__main__":
 
         # TODO: apply patches after setup
 
-        # initialize project
-
+        # initialize project directory
+        Constants.PROJECT_DIR.mkdir(parents=True, exist_ok=True)
+        src = Constants.PROJECT_DIR / "src"
+        shutil.copytree(Constants.DECOMPILE_DIR, src)

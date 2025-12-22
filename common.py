@@ -14,6 +14,8 @@ class Constants:
     DOWNLOADS_DIR = WORK_DIR / "download"
     DECOMPILE_DIR = WORK_DIR / "decompile"
     PATCHES_DIR = BASE_DIR / "patches"
+    PROJECT_DIR = BASE_DIR / "project"
+
 
     @staticmethod
     def ensure_dirs():
@@ -22,6 +24,7 @@ class Constants:
         Constants.DECOMPILE_DIR.mkdir(parents=True, exist_ok=True)
         Constants.DOWNLOADS_DIR.mkdir(parents=True, exist_ok=True)
         Constants.PATCHES_DIR.mkdir(parents=True, exist_ok=True)
+        # do not create PROJECT_DIR here
 
 
 def pre_init():
@@ -79,7 +82,7 @@ def download_server_jar(out_path: Path):
     # TODO: replace with actual Hytale server jar after release
 
     if not out_path.exists():
-        logger.info("Downloading jar...")
+        logger.info("Downloading jar to {}...", out_path)
         wget.download("https://cdn.ribica.dev/minigui.jar", out=str(out_path))
 
 
