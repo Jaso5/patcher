@@ -1,3 +1,6 @@
 .logs
+.venv/
 __pycache__/
 work/
+project/
+hytale-server/
