@@ -71,3 +71,7 @@ have not intended this to be a collaborative project, so please be careful when 
 also some leftover code about feature patches, but those should not be used at the moment.
 
 Should there be any issues with these scripts when Hytale drops, we will make sure to address them as soon as possible.
+
+# TODO and to keep in mind:
+
+Hytale server will obviously use some 3rd party libraries. We have to add them to pom.xml manually
