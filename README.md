@@ -20,7 +20,7 @@ one of these:
 * Activate the virtual environment:
   - Windows: `".venv\Scripts\activate"`  (including the quotes)
   - Linux/Mac: `source .venv/bin/activate`
-  From now on, you are running python commands from inside the venv, hence you must use `python` instead of `py` or `python3` to invoke python.
+  - From now on, you are running python commands from inside the venv, hence you must use `python` instead of `py` or `python3` to invoke python.
  
 * Inside the venv, you have to install the dependencies
   - `pip install -r requirements.txt`
