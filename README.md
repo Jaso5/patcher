@@ -1,6 +1,6 @@
-# Patcher
+# ~~Patcher~~
 
-This patcher allows you to more easily prepare an environment for exploring the Hytale Server without publishing the decompiled code.
+This ~~patcher~~ allows you to more easily prepare an environment for exploring the Hytale Server without publishing the decompiled code.
 
 
 
@@ -34,12 +34,15 @@ one of these:
 
 ## Usage
 
-First run this:
+Put your HytaleServer.jar in the same root directory of this repo or specify an environment variable `HYTALESERVER_JAR_PATH` with the path to your HytaleServer.jar
+
+Then run this:
 ```shell
 python run.py setup
 ```
 It will
-- download the ~~Hytale server jar~~ (currently it's a placeholder jar for playing around) into `work/download`
+- copy the HytaleServer.jar into `work/download`
+  * (on Windows) fix `META-INF/license` name collision
 - decompile it using Fernflower and save the output to `work/decompile`
 - set up a Maven project in `hytale-server` with the decompiled code
 
@@ -56,26 +59,4 @@ If you don't see it, enable it under View -> Tool Windows -> Maven.
 ![_readme_images/tool_windows.png](_readme_images/tool_windows.png)  
 
 
-This decompiled code is likely broken. To apply existing patches:
-```shell
-python run.py applySourcePatches
-```
-It reads the patches from `src-patches` folder and applies them to corresponding decompiled source files.
-
-_If you are reading this too soon, we may not have created those patches yet. Please wait until then, do not
-contribute that yourself, as crowdsourcing this part will be strenuous. More importantly, do not blindly have a LLM
-fix the code for you, the result may be even worse._
-
-When you made some changes, you can rebuild patches by running:
-```shell
-python run.py makeSourcePatches
-```
-This will modify the patch files inside the `src-patches` folder to reflect your local changes. Keep in mind that we 
-have not intended this to be a collaborative project, so please be careful when combining multiple patches. There is 
-also some leftover code about feature patches, but those should not be used at the moment.
-
-Should there be any issues with these scripts when Hytale drops, we will make sure to address them as soon as possible.
-
-# TODO and to keep in mind:
-
-Hytale server will obviously use some 3rd party libraries. We have to add them to pom.xml manually
+This decompiled code is likely broken. But it is somewhat usable for exploration. Try Ctrl+Shift+F and search PacketAdapters
