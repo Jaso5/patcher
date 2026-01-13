@@ -163,7 +163,7 @@ if __name__ == "__main__":
         Constants.ensure_dirs()
 
         # download and decompile
-        jar_path = Constants.DOWNLOADS_DIR / "minigui.jar"
+        jar_path = Constants.DOWNLOADS_DIR / "hytale-server.jar"
         download_server_jar(jar_path)
 
         decompile(jar_path, Constants.DECOMPILE_DIR)
