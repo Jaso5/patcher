@@ -194,7 +194,7 @@ if __name__ == "__main__":
                 "mvn", "archetype:generate",
                 # "-DgroupId=com.hypixel.hytale", "-DartifactId=hytale-server",
                 "-DgroupId=com.hypixel.hytale", "-DartifactId=" + Constants.PROJECT_DIR.name,
-                # "-DarchetypeArtifactId=maven‑archetype‑quickstart",
+                "-DarchetypeArtifactId=maven-archetype-quickstart",
                 "-DinteractiveMode=false"
             ], check=True)
 
