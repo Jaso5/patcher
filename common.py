@@ -10,8 +10,7 @@ import wget
 from loguru import logger
 from tqdm import tqdm
 
-from utils import ensure_java, ensure_git, ensure_jar
-
+from utils import ensure_java, ensure_git, ensure_jar, ensure_maven
 
 SERVER_JAR_ENV = "HYTALESERVER_JAR_PATH"
 
@@ -51,6 +50,8 @@ def pre_init():
 
     # ensure jar utility
     ensure_jar()
+
+    ensure_maven()
 
     Constants.ensure_dirs()
 
